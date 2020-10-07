@@ -61,7 +61,15 @@ const favoriteDessertsGroupB = {
 // }
 
 function groupByValue(obj) {
-  // do something
+  let result = {};
+  for (value in obj) {
+    if (obj[value] in result === false) {
+      result[obj[value]] = [value];
+    } else {
+      result[obj[value]].push(value);
+    }
+  }
+  return result;
 }
 
 // Verification via console.log()

@@ -39,6 +39,10 @@ const favoriteDessertsGroupB = {
   minda: "dessert",
 };
 
+// Convert in some sort of an array. √
+// Object.values() to get array with different values. √
+// .reduce(acc, current value)
+
 // Write a function which takes one of these objects and puts them into an
 // array which is sorted from most popular to least popular. For example,
 // in Group B, the most popular dessert is "pie", so it should be first
@@ -53,7 +57,34 @@ const favoriteDessertsGroupB = {
 // Your function should work with both objects and any other objects of the same shape.
 
 function sortByPopularity(obj) {
-  // Write code
+  let dessertsValue = Object.values(obj);
+  let test = dessertsValue.reduce((acc, dessertItem) => {
+    if (!acc[dessertItem]) {
+      acc[dessertItem] = 1;
+    } else {
+      acc[dessertItem]++;
+    }
+    return acc;
+  }, {});
+
+  let valueArr = Object.values(test);
+  let nameArr = Object.keys(test);
+
+  let result = nameArr
+    .map((item, index) => {
+      return { name: item, count: valueArr[index] };
+    })
+    .reverse();
+
+  result.sort(function (a, b) {
+    return b.count - a.count;
+  });
+
+  let newResult = result.map((el) => {
+    return el.name;
+  });
+
+  return newResult;
 }
 
 // Verification via console.log()

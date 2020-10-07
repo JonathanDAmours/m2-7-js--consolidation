@@ -58,24 +58,4 @@ test("Exercise 2", () => {
     "child tears",
     "deep-fried mars bar",
   ]);
-  expect(
-    sortByPopularity({
-      a: "blue",
-      b: "red",
-      c: "green",
-      d: "blue",
-      e: "blue",
-      f: "red",
-    })
-  ).toStrictEqual(["blue", "red", "green"]);
-  expect(
-    sortByPopularity({
-      a: "monday",
-      b: "monday",
-      c: "tuesday",
-      d: "wednesday",
-      e: "saturday",
-      f: "monday",
-    })
-  ).toStrictEqual(["monday", "saturday", "wednesday", "tuesday"]);
 });
